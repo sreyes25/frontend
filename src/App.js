@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import {AddReview} from "./components/AddReview";
-import {Restaurant} from "./components/Restaurants";
-import {RestaurantsList} from "./components/RestaurantsList";
-import {Login} from "./components/Login";
+import { AddReview } from "./components/AddReview";
+import { Restaurant } from "./components/Restaurants";
+import { RestaurantsList } from "./components/RestaurantsList";
+import { Login } from "./components/Login";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -50,21 +50,20 @@ function App() {
 
       <div className="container mt-3">
         <Routes>
-
-          <Route path="restaurants" element={<RestaurantsList />}/>
-          <Route 
+          <Route path="restaurants" element={<RestaurantsList />} />
+          
+          <Route
             path="restaurants/:id/review"
-            element={<AddReview />}
+            element={<AddReview user={user}/>}
           />
-           <Route 
-            path="/restaurants/:id"
-            element={<Restaurant />}
+          <Route
+           path="restaurants/:id" 
+           element={<Restaurant user={user}/>} />
+           
+          <Route path="/login"
+          element={<Login login={login}/>}
           />
-          <Route 
-            path="login"
-            element={<Login />}
-          />
-
+          
         </Routes>
       </div>
     </div>

@@ -13,6 +13,7 @@ export const RestaurantsList = (props) => {
     retrieveRestaurants();
     retrieveCuisines();
   }, []);
+  
   const onChangeSearchName = (e) => {
     const searchName = e.target.value;
     setSearchName(searchName);

@@ -2,15 +2,15 @@ import http from "../http-commons";
 
 export class RestaurantDataService {
     getAll(page = 0) {
-        return http.get(`restaurants?page=${page}`);
+        return http.get(`?page=${page}`);
       }
     
       get(id) {
-        return http.get(`/restaurant?id=${id}`);
+        return http.get(`/id/${id}`);
       }
     
       find(query, by = "name", page = 0) {
-        return http.get(`restaurants?${by}=${query}&page=${page}`);
+        return http.get(`?${by}=${query}&page=${page}`);
       } 
     
       createReview(data) {
@@ -19,12 +19,20 @@ export class RestaurantDataService {
     
       updateReview(data) {
         return http.put("/review", data);
-      }
+      } 
     
-      deleteReview(id, userId) {
-        return http.delete(`/review?id=${id}`, {data:{user_id: userId}});
-      }
-    
+      deleteReview = (id, userId) => {
+        http.delete(`/review?id=${id}`, { data: { user_id: userId } })
+          .then(response => {
+            console.log(response.data);
+            // update state or perform other actions as needed
+          })
+          .catch(error => {
+            console.error(`Unable to delete review: ${error}`);
+            // handle error as needed
+          });
+      };
+      
       getCuisines(id) {
         return http.get(`/cuisines`);
       }

@@ -1,7 +1,10 @@
 import React from 'react'
 
-export const AddReview = () => {
+export const AddReview = (props) => {
   return (
-    <div>AddReview</div>
+    <div>
+      Nice
+    </div>
+    
   )
 }
