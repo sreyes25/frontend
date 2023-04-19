@@ -9,7 +9,7 @@ export const Restaurant = (props) => {
     address: {},
     cuisine: "",
     reviews: []
-  };
+  }; 
   const [restaurant, setRestaurant] = useState(initialRestaurantState);
 
   const getRestaurant = id => {
